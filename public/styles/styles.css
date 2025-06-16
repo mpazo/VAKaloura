@@ -1,0 +1,441 @@
+/*
+Color1: D9E4DD
+Color2: F8F7F0
+Color3: CDC9C3
+Color4: 555555
+*/
+
+#aviso {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 1; /* Opacidade inicial completa */
+    transition: opacity 0.5s ease-out; /* Animación para a transición de opacidade */
+}
+
+#aviso.fade-out {
+    opacity: 0; /* Estilo aplicado ao facer o fade out */
+}
+
+#privacy-notice {
+    background: #F8F7F0;
+    color: #555555;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+    width: 60vw;
+    height: 60vh;
+    overflow: auto;
+    margin-top: -5px;
+}
+
+#botonsAviso {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#app {
+    pointer-events: none; /* Impedir eventos no contido */
+    opacity: 0.5; /* Facelo semitransparente para indicar que non está accesible */
+    transition: opacity 0.3s ease; /* Transición suave para opacidade */
+}
+
+#app.active {
+    pointer-events: auto; /* Activar eventos se se acepta */
+    opacity: 1; /* Restaurar opacidade */
+}
+
+img{
+    max-width: 100%;
+}
+
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #FFF;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+/* Título con logo */
+#titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espazo entre o logo e o título */
+}
+
+.logo {
+    width: 60px; /* Axusta o tamaño do logo */
+    height: auto; /* Faino cadrado para que o "border-radius" funcione */
+    border-radius: 50%; /* Fai o logo circular */
+    object-fit: cover; /* Asegúrate de que a imaxe encaixe ben no cadrado */
+}
+
+
+/* Contenedor principal */
+#app {
+    background: #F8F7F0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 20px auto;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:#555555;
+}
+
+/* Preguntas */
+.question {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    background-color: #CDC9C3;
+    border-radius: 10px;
+    margin: 10px;
+    width: auto;
+}
+
+/* Caixas de texto (input e textarea) */
+input[type="text"],
+textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    margin-bottom: 5px;
+}
+
+/* Botons de contido */
+.content-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Botóns */
+
+button {
+    background-color: white;
+    color: #555555; /* Cor do texto */
+    padding: 6px 15px; /* Espazado interno */
+    text-align: center;
+    display: inline-block;
+    font-size: 15px; /* Tamaño da fonte */
+    border-radius: 10px; /* Esquinas arredondadas */
+    cursor: pointer; /* Cursor de man ao pasar sobre o botón */
+    border: 2px solid black;
+    border-color: #555555;
+}
+
+button:hover {
+    background-color: #ebebeb; /* Lixeiro cambio de cor ao pasar o rato por riba */
+}
+
+#accept-conditions, #decline-conditions {
+    border: none;
+    background-color: #555555;
+    color: white;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#visualMemory,
+#auditoryMemory,
+#kinestheticMemory {
+    border:none;
+}
+
+#accept-conditions:hover,
+#decline-conditions:hover {
+    background-color: #3a3a3a;
+}
+
+#botonEnviar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.submit-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #555555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.submit-button:hover {
+    background-color: #3a3a3a;
+}
+
+/* Elementos arrastrables */
+.draggable {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    cursor: move;
+    transition: background-color 0.3s;
+}
+
+.draggable.correct {
+    background-color: #d4edda;
+    border-color: green;
+}
+
+.draggable.incorrect {
+    background-color: #f8d7da;
+    border-color: red;
+}
+
+/* Áreas de drop */
+.dropzone {
+    margin: 5px 0;
+    padding: 0;
+    border: 2px dashed #ccc;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 300px;
+    box-sizing: border-box;
+}
+
+/* Grid para las drop zones */
+.dropzone-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .dropzone-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #interactiveActivity {
+        width: 80vw;
+    }
+    
+    #memoryContent14 {
+        grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+        width:80vw;
+    }
+
+    .content-buttons {
+        display: flex;
+        align-items: right;
+        flex-direction: column;
+    }
+
+    #app {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    .submit-button {
+        max-width: 100%;
+    }
+
+    .dropzone, .draggable {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .dropzone-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #app {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .content-buttons {
+        display: flex;
+        align-items: right;
+        flex-direction: column;
+    }
+
+    .submit-button {
+        padding: 8px 16px;
+    }
+
+    .dropzone {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+#evaporacion {
+    background-image: url('../img/evaporacion.jpg');
+    max-width: 100%;
+    height: auto;
+}
+
+#condensacion {
+    background-image: url('../img/condensacion.jpg');
+    max-width: 100%;
+    height: auto;
+}
+
+#precipitacion {
+    background-image: url('../img/precipitacion.jpg');
+    max-width: 100%;
+    height: auto;
+}
+
+#recoleccion {
+    background-image: url('../img/recoleccion.jpg');
+    max-width: 100%;
+    height: auto;
+}
+
+select{
+    /*width: fit-content;*/
+    border-radius: 2px;
+}
+
+/*Preguntas idade e xenero*/
+.general{
+    display: flex;
+    background-color: #CDC9C3;
+    border-radius: 10px;
+    padding: 10px;
+    width: auto;
+    margin: 10px;
+    justify-content: center;
+    height: 100%;
+    gap: 5%;
+}
+
+.seccionXeral {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+/*Estilo da barra de scroll*/
+/* Aviso de termos e condicions */
+#privacy-notice::-webkit-scrollbar {
+    width: 10px; /* Ancho da barra de scroll */
+}
+
+#privacy-notice::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor de fondo do track (canle por onde se move o scroll) */
+    border-radius: 10px;
+}
+
+#privacy-notice::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do thumb (a parte que se move) */
+    border-radius: 10px;
+}
+
+#privacy-notice::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor ao pasar o rato por enriba do thumb */
+}
+
+/* Aplicacion xeral */
+body::-webkit-scrollbar {
+    width: 10px; /* Ancho da barra de scroll */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor de fondo do track (canle por onde se move o scroll) */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888; /* Cor do thumb (a parte que se move) */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Cor ao pasar o rato por enriba do thumb */
+}
+
+/* Cor da selección */
+input[type="radio"]:checked {
+    accent-color: #555555;
+}
+
+/* Estilo do footer */
+#licenza {
+    text-align: center;
+    font-size: 0.7em;
+    margin-top: 1em;
+    padding: 1em 0;
+    color: #555555;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Iconos Creative Commons */
+#licenza img {
+    max-width: 1em;
+    max-height: 1em;
+    margin-left: 0.2em;
+    vertical-align: middle;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Diagnóstico de Estilos de Aprendizaxe VAK</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div id="aviso">
+        <!-- Mensaxe de privacidade -->
+        <div id="privacy-notice" style="display: none;">
+            <h1>VAKaloura</h1>
+            <h2>Condicións</h2>
+            <p>Estás a piques de acceder ao cuestionario VAKaloura de diagnóstico de estilos de aprendizaxe VAK.
+                Este formulario é parte dun traballo de investigación (TFG) no que se pretende construír unha ferramenta
+                baseada en intelixencia artificial capaz de predecir o estilo de aprendizaxe dunha persoa a partir da análise de textos.
+                As respostas que introduzas serán almacenadas de forma anónima e utilizadas exclusivamente para a investigación.
+                Este uso pode incluír adestramento e validación de modelos de aprendizaxe automática, así como a publicación de resultados
+                nas memorias da investigación e a súa presentación diante do tribunal. En ningún caso se publicarán datos persoais nin se
+                compartirán con terceiros.
+            </p>
+            <p>Facendo click en "Aceptar" mostras o teu acordo con estes termos e das o teu consentimento para o tratamento.</p>
+                <div id="botonsAviso">
+                    <button id="accept-conditions">Aceptar</button>
+                    <button id="decline-conditions">Rexeitar</button>
+                </div>
+        </div>
+    </div>
+    <div id="app"></div>
+    <footer id="licenza">
+        <p>
+            VAKaloura © 2025 by María Lima Pazo is licensed under 
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;" alt="cc">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;" alt="by">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;" alt="nc">
+            <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="max-width: 1em; max-height: 1em; margin-left: .2em;" alt="sa">
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="src/App.js"></script>
+</body>
+</html>
